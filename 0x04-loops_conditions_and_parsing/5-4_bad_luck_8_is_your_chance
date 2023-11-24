@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#script nadu
+counter=0
+while [ $counter -le 9 ]
+do
+    if [ $counter == 3 ]
+    then
+        echo "bad luck"
+    elif [ $counter == 7 ]
+    then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+    ((counter++))
+done
