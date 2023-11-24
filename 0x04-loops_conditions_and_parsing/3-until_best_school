@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#script nadu
+counter=1
+until [ $counter -eq 11 ]
+do
+    echo "Best School"
+    ((counter++))
+done
