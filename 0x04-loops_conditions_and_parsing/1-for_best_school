@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+for (( i = 0; i <= 9; i++ ))
+do
+    echo "Best School"
+done
