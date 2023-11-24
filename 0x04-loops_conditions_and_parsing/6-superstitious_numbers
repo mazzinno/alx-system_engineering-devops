@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #script nadu
-counter=0
+counter=1
 while [ $counter -le 20 ]
 do
     if [ $counter == 4 ]
