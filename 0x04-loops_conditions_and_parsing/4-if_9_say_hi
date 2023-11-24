@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #script nadu
 counter=1
-while [ $counter -le 10 ]
+while [ $counter -le 11 ]
 do
     if [ $counter == 9 ]
     then
