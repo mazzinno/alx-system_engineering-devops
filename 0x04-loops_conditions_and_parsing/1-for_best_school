@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#script nadu
 for (( i = 0; i <= 9; i++ ))
 do
     echo "Best School"
