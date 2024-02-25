@@ -1,8 +1,8 @@
-#creates a file
+#create a file inside /tmp
 file { '/tmp/school':
   ensure  => present,
-  content => "I love Puppet",
-  mode    => '0744',        # Set file permissions
-  owner   => 'www-data',        # Set file owner
-  group   => 'www-data',        # Set file group
+  mode    => '0744',
+  owner   => 'www-data',
+  group   => 'www-data',
+  content => 'I love Puppet'
 }
