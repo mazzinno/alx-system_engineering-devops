@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#reates an RSA key pair with exact type and pass
+ssh-keygen -t rsa -b 4096 -f school -N 'betty'
