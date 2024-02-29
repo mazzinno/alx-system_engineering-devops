@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Install nginx web server and add redirection
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install -y nginx
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chown -R "$USER":"$USER" /etc/nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+red="\\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+sed -i "53i $red" /etc/nginx/sites-available/default
+sudo service nginx restart
