@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install nginx on my web server
+#add a custom Nginx response header now.
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install -y nginx
@@ -11,7 +11,7 @@ sed -i "53i $red" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 ero="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
 sed -i "47i $ero" /etc/nginx/sites-available/default
-hostname=$(hostname)
-header="\\\tadd_header X-Served-By \"$hostname\";"
-sed -i "/server_name _;/a $header" /etc/nginx/sites-available/default
-sudo nginx -s reload
+vari=$(hostname)
+web1="server \{\n\tadd_header X-Served-By $vari;"
+sudo sed -i -E "s/^server \{/$web1/" /etc/nginx/sites-available/default
+sudo service nginx restart
