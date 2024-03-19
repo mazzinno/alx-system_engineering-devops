@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Nginx is running as a nginx user
+sudo service nginx stop
+sed -i -E 's/#user.+\;/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+chown nginx:nginx /etc/nginx/ -R
+chmod +rw /etc/nginx/nginx.conf
+su -c 'service nginx start' nginx
