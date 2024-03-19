@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Installing new server to serve some content
+./0-nginx_likes_port_80
+echo "hi" > /var/run/nginx.pid
+echo "hi" > /run/nginx.pid
