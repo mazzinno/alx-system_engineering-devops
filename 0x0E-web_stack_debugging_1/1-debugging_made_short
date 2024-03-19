@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installing new server to serve some content
-./0-nginx_likes_port_80
-echo "hi" > /var/run/nginx.pid
-echo "hi" > /run/nginx.pid
+#Using what you did for task #0, make your fix short
+sudo sed -i "s/8080 default_server/80 default_server/g" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+sudo pkill -o nginx
