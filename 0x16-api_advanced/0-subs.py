@@ -1,17 +1,31 @@
 #!/usr/bin/python3
-"""Script that queries subscribers"""
+"""
+Queries the Reddit API and returns the number of subscribers for a given subreddit.
+If the subreddit is invalid, it returns 0.
+"""
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """returns the number of subscribers for a given subreddit"""
-    headers = {"User-Agent": "Mozilla/5.0"}
+    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    headers = {'User-Agent': 'by u/qasqot79'}  # Set a custom User-Agent to avoid issues
 
-    if not subreddit:
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        subscribers = data['data']['subscribers']
+        return subscribers
+    else:
         return 0
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code != 200:
-        return 0
-    return response.json()["data"]["subscribers"]
+
+if __name__ == '__main__':
+    import sys
+
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
+    else:
+        subreddit = sys.argv[1]
+        num_subscribers = number_of_subscribers(subreddit)
+        print(num_subscribers)
