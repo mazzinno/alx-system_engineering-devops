@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-#No service interruption
-pkill -HUP gunicorn
+# Gracefully reloads Gunicorn.
+#shellcheck disable=SC2009
+ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
